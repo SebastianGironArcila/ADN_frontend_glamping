@@ -7,7 +7,7 @@ import { MensajeErrorCamposContenedorDirective } from './directivas/error-campos
 import { ErrorCamposPlantillaComponent } from './directivas/error-campos/componente/error-campos-plantilla.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { TrackByPipe } from './pipe/track-by.pipe';
-import { MaterialModule } from './material.module';
+
 
 @NgModule({
   declarations: [
@@ -27,7 +27,7 @@ import { MaterialModule } from './material.module';
     ReactiveFormsModule,
     FormsModule,
     TrackByPipe,
-    MaterialModule
+   
   ]
 })
 export class SharedModule { }
