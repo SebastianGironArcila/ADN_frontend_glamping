@@ -1,13 +1,11 @@
 <mat-toolbar>
-  <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
-    <mat-icon>menu</mat-icon>
-  </button>
-  <span>My App</span>
-  <span class="example-spacer"></span>
-  <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
-    <mat-icon>favorite</mat-icon>
-  </button>
-  <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-    <mat-icon>cabin</mat-icon>
-  </button>
+  <div class="header-wrapper">
+    <figure class="logo_wrap mini">
+      <img src="../../../assets/images/logo_glamping.png" alt="dream-glamping" class="img-fluid">
+    </figure>  
+    <nav class="navbar">
+      <a *ngFor="let item of items" [routerLink]="item.url" routerLinkActive="active">{{item.nombre | titlecase}}</a>
+    </nav>
+  </div>
 </mat-toolbar>
+

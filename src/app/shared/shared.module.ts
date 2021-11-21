@@ -7,6 +7,7 @@ import { MensajeErrorCamposContenedorDirective } from './directivas/error-campos
 import { ErrorCamposPlantillaComponent } from './directivas/error-campos/componente/error-campos-plantilla.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { TrackByPipe } from './pipe/track-by.pipe';
+import { MaterialModule } from '../core/material.module';
 
 
 @NgModule({
@@ -27,6 +28,7 @@ import { TrackByPipe } from './pipe/track-by.pipe';
     ReactiveFormsModule,
     FormsModule,
     TrackByPipe,
+    MaterialModule
    
   ]
 })
