@@ -4,13 +4,15 @@ import { ReservaComponent } from './components/reserva/reserva.component';
 import { SharedModule } from '@shared/shared.module';
 import { ReservaRoutingModule } from './reserva-routing.module';
 import { ListarReservaComponent } from './components/listar-reserva/listar-reserva.component';
+import { TarjetaReservaComponent } from './components/tarjeta-reserva/tarjeta-reserva.component';
 
 
 
 @NgModule({
   declarations: [
     ReservaComponent,
-    ListarReservaComponent
+    ListarReservaComponent,
+    TarjetaReservaComponent
   ],
   imports: [
     ReservaRoutingModule,

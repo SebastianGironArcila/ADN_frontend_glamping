@@ -14,7 +14,8 @@ body {
 	padding: 0;
 	width: 100%;
     /* background-color: #372554; */
-    background-color: #e9e6ee;
+    background-image: url('./images/fondo2.jpg');
+    background-size: cover;
 }
 
 .container {
@@ -54,7 +55,7 @@ body {
     border-radius: 100px;
     backdrop-filter: blur(7px) saturate(102%);
     -webkit-backdrop-filter: blur(7px) saturate(102%);
-    background-color: rgba(255, 255, 255, 0.32);
+    background-color: rgba(255, 255, 255, 0.17);
     border: 1px solid rgba(209, 213, 219, 0.3);
 }
 
@@ -136,8 +137,10 @@ body {
 
 .mat-toolbar{
     background-color: transparent !important;
+    /* opacity: 0.8; */
 }
 
 .mat-toolbar-single-row{
     height: auto !important;
 }
+
