@@ -1,43 +1,50 @@
 
 <body>
     <mat-card id="card-formulario" class="width-100">
-        <form >
+        <form [formGroup]="reservaForm" (ngSubmit)="guardar()">
             <div class="formulario">
                 <mat-form-field class="width-100">
                     <mat-label>Nombre</mat-label>
-                    <input type="text" matInput placeholder="Ingrese el nombre">
+                    <input type="text" matInput placeholder="Ingrese el nombre" class="form-control"
+                    formControlName="nombre">
                 </mat-form-field>
                 <mat-form-field class="width-100">
                     <mat-label>Cedula</mat-label>
-                    <input type="text" matInput placeholder="Ingrese la cedula">
+                    <input type="text" matInput placeholder="Ingrese la cedula" class="form-control"
+                    formControlName="cedula">
                 </mat-form-field>
                 <mat-form-field class="width-100">
                     <mat-label>Glamping</mat-label>
-                    <mat-select>
-                        <mat-option *ngFor=" let glampin">
-
+                    <mat-select class="form-control"
+                    formControlName="idGlamping">
+                        <mat-option *ngFor=" let gl of glamping" [value]="gl">
+                            #{{gl.id}}
                         </mat-option>
                     </mat-select>
                 </mat-form-field>
                 <mat-form-field class="width-100">
                     <mat-label>Fecha entrada</mat-label>
-                    <input matInput [matDatepicker]="picker" placeHolder="Ingrese la fecha de entrada" >
+                    <input matInput [matDatepicker]="picker" placeHolder="Ingrese la fecha de entrada" class="form-control"
+                    formControlName="fechaEntrada">
                     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                     <mat-datepicker #picker></mat-datepicker>
                 </mat-form-field>
                 <mat-form-field class="width-100">
                     <mat-label>Fecha salida</mat-label>
-                    <input matInput [matDatepicker]="picker2" placeHolder="Ingrese la fecha de salida" >
+                    <input matInput [matDatepicker]="picker2" placeHolder="Ingrese la fecha de salida" class="form-control"
+                    formControlName="fechaSalida" >
                     <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
                     <mat-datepicker #picker2></mat-datepicker>
                 </mat-form-field>
                 <mat-form-field class="width-100">
                     <mat-label>Cantidad personas</mat-label>
-                    <input type="number" matInput placeholder="Ingrese el numero de personas a hospedar">
+                    <input type="number" matInput placeholder="Ingrese el numero de personas a hospedar" class="form-control"
+                    formControlName="cantPersonas">
                 </mat-form-field>
                 <mat-form-field class="width-100">
                     <mat-label>Telefono</mat-label>
-                    <input type="number" matInput placeholder="Ingrese un numero de telefono">
+                    <input type="number" matInput placeholder="Ingrese un numero de telefono" class="form-control"
+                    formControlName="telefono">
                 </mat-form-field>
 
                 <button class="width-100" type="submit" mat-raised-button>Guardar reserva</button>
