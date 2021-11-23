@@ -43,21 +43,7 @@ export class CrearReservaComponent implements OnInit {
     
   }
 
-  // private construirFormularioReserva(){
-  //   this.reservaForm = this.form({
-  //     id: [''],
-  //     cedula: ['', [Validators.required]],
-  //     nombre: ['', [Validators.required]],
-  //     fechaEntrada: ['', [Validators.required]],
-  //     idGlamping: ['', [Validators.required]],
-  //     cantPersonas: ['', [Validators.required]],
-  //     telefono: ['', [Validators.required]],
-  //     fechaSalida: ['', [Validators.required]],
-  //     costoTotal: [1, [Validators.required]],
-  //     fechaRegistro:['', [Validators.required]]
-      
-  //   })
-  // }
+
 
   private construirFormularioReserva(){
     this.reservaForm = new FormGroup({
@@ -77,7 +63,6 @@ export class CrearReservaComponent implements OnInit {
 
 
   guardar(){
-    console.log('form ',this.reservaForm.value)
     this.reservaForm.value.fechaRegistro = this.obtenerFechaActual();
     this.reservaForm.value.fechaEntrada = this.formatearFechaSinHora(new Date(this.reservaForm.value.fechaEntrada));
     this.reservaForm.value.fechaSalida = this.formatearFechaSinHora(new Date(this.reservaForm.value.fechaSalida));
