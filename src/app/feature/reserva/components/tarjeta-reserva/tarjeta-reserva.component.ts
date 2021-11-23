@@ -8,7 +8,7 @@ import { Reserva } from '@reserva/shared/model/reserva';
 })
 export class TarjetaReservaComponent implements OnInit {
 
-  @Input() reserva!: Reserva;
+  @Input() reserva: Reserva;
   
   constructor() { }
 

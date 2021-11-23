@@ -1,39 +1,29 @@
 export class Reserva{
 
-    // this.id = id;
-    // this.cedula = cedula;
-    // this.nombre = nombre;
-    // this.fechaEntrada = fechaEntrada;
-    // this.idGlamping = idGlamping;
-    // this.cantPersonas = cantPersonas;
-    // this.telefono = telefono;
-    // this.fechaSalida = fechaSalida;
-    // this.costoTotal = costoTotal;
-    // this.fechaRegistro = fechaRegistro;
 
     id:number;
     cedula: string;
     nombre:string;
-    fechaEntrada: Date;
+    fechaEntrada: String;
     idGlamping: number;
     cantPersonas: number;
     telefono: string;
-    fechaSalida: Date;
+    fechaSalida: String;
     costoTotal: number;
-    fechaRegistro: Date;
+    fechaRegistro: String;
 
 
     
     constructor( id:number,
         cedula: string,
         nombre:string,
-        fechaEntrada: Date,
+        fechaEntrada: String,
         idGlamping: number,
         cantPersonas: number,
         telefono: string,
-        fechaSalida: Date,
+        fechaSalida: String,
         costoTotal: number,
-        fechaRegistro: Date){
+        fechaRegistro: String){
 
         this.id = id;
         this.cedula = cedula;

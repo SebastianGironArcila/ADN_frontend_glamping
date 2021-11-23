@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  endpoint: '/prospectos-vida'
+  //endpoint: 'http://localhost:8084/Glamping'
+  endpoint: '/Glamping'
 };
 
 /*

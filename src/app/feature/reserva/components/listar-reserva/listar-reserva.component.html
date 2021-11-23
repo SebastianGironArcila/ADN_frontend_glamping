@@ -1,16 +1,16 @@
-<h1>Listado de reservas</h1>
+
 <mat-divider></mat-divider>
 <br>
 
-<div class="bloques" >
+<div *ngIf="reservas" class="bloques" >
     <div class="example-button-container">
-        <button mat-fab color="warn" aria-label="Example icon button with a home icon">
+        <button routerLink="/reserva/crear"  mat-fab color="warn">
           <mat-icon>add</mat-icon>
         </button>
-</div>
+    </div>
 
     <div 
-         *ngFor="let reserva of reservas">
+         *ngFor="let reserva of listaReservas | async">
        
         <app-tarjeta-reserva [reserva]="reserva"></app-tarjeta-reserva>
     </div>
