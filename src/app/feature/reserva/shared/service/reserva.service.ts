@@ -3,7 +3,6 @@ import { HttpService } from '@core-service/http.service';
 import { environment } from 'src/environments/environment';
 import { Reserva } from '../model/reserva';
 import { Tipo } from '../model/tipo';
-import { Glamping } from '../model/glamping';
 
 
 @Injectable()
@@ -11,7 +10,7 @@ export class ReservaService {
 
   reserva: Reserva;
   tipoGlamping: Tipo;
-  glamping: Glamping;
+  
   constructor(protected http: HttpService) { }
 
   public consultar(){
@@ -26,8 +25,6 @@ export class ReservaService {
     return this.http.doGet<Tipo[]>(`${environment.endpoint}/tipoGlamping`);
   }
 
-  public consultarGlamping(){
-    return this.http.doGet<Glamping[]>(`${environment.endpoint}/glampings`);
-  }
+ 
 
 }

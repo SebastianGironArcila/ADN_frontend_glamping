@@ -3,10 +3,11 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ReservaService } from '../../shared/service/reserva.service';
 import { Observable } from 'rxjs';
 import { Tipo } from '../../shared/model/tipo';
-import { Glamping } from '@reserva/shared/model/glamping';
+import { Glamping } from 'src/app/feature/glamping/shared/model/glamping';
 import * as moment from 'moment';
 import { SwalService } from '@core/services/swal.service';
 import { Router } from '@angular/router';
+import { GlampingService } from '../../../glamping/shared/service/glamping.service';
 
 
 @Component({
@@ -24,12 +25,13 @@ export class CrearReservaComponent implements OnInit {
 
   constructor(
     protected reservaService: ReservaService,
+    protected glampingService: GlampingService,
     protected swalService: SwalService,
     protected router:Router
     ) { }
 
   ngOnInit(){
-    this.listaGlamping = this.reservaService.consultarGlamping();
+    this.listaGlamping =this.glampingService.consultar();
 
   
     this.listaGlamping.subscribe((data:Glamping[])=>{

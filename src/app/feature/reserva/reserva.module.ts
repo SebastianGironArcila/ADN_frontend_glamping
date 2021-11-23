@@ -7,6 +7,7 @@ import { ListarReservaComponent } from './components/listar-reserva/listar-reser
 import { TarjetaReservaComponent } from './components/tarjeta-reserva/tarjeta-reserva.component';
 import { CrearReservaComponent } from './components/crear-reserva/crear-reserva.component';
 import { ReservaService } from './shared/service/reserva.service';
+import { GlampingService } from '../glamping/shared/service/glamping.service';
 
 
 
@@ -21,6 +22,6 @@ import { ReservaService } from './shared/service/reserva.service';
     ReservaRoutingModule,
     SharedModule
   ],
-  providers:[ReservaService]
+  providers:[ReservaService, GlampingService]
 })
 export class ReservaModule { }
