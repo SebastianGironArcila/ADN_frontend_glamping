@@ -14,8 +14,8 @@ describe('Crear reserva',  () => {
    
 
     beforeEach(() => {
-        page = new AppPage;
-        menu = new ToolBarPage;
+        page = new AppPage();
+        menu = new ToolBarPage();
         crearReserva = new CrearReserva();
     
     });
