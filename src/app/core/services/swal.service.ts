@@ -45,8 +45,8 @@ export class SwalService {
     title = '',
     text = '',
     icon = 'warning',
-    confirmButtonText = '',
-    cancelButtonText = '',
+    confirmButtonText = 'si',
+    cancelButtonText = 'no',
     {
       clickConfirm = () => {
       }, clickCancel = () => {

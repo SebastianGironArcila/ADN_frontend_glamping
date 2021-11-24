@@ -21,6 +21,9 @@ export class ReservaService {
     return this.http.doPost<Reserva, boolean>(`${environment.endpoint}/reserva`, reserva);
   }
 
+  public eliminar(reserva: Reserva) {
+    return this.http.doDelete<boolean>(`${environment.endpoint}/reserva/${reserva.id}`);
+  } 
   public consultarTiposglamping(){
     return this.http.doGet<Tipo[]>(`${environment.endpoint}/tipoGlamping`);
   }

@@ -55,4 +55,14 @@ describe('ReservaService', () => {
 
   });
 
+  it('deberia eliminar una reserva', () => {
+    const dummyReserva =new Reserva(1,'1116275325','Sebastian','2020-02-09',1,4,'3053198749','2020-02-11',250000,'2020-02-01 08:05:30');
+    service.eliminar(dummyReserva).subscribe((respuesta) => {
+      expect(respuesta).toEqual(true);
+    });
+    const req = httpMock.expectOne(`${apiEndpointReserva}/1`);
+    expect(req.request.method).toBe('DELETE');
+    req.event(new HttpResponse<boolean>({body: true}));
+  });
+
 });
