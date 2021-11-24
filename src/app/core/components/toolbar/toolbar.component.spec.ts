@@ -1,4 +1,6 @@
+import { CommonModule } from '@angular/common';
 import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
+import { MaterialModule } from '@core/material.module';
 
 import { ToolbarComponent } from './toolbar.component';
 
@@ -8,7 +10,11 @@ describe('ToolbarComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ ToolbarComponent ]
+      declarations: [ ToolbarComponent],
+      imports:[
+        MaterialModule,
+        CommonModule
+      ]
     })
     .compileComponents();
   }));

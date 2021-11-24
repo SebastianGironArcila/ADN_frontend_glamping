@@ -13,6 +13,7 @@ import { GlampingService } from '../../../glamping/shared/service/glamping.servi
 import { RouterTestingModule } from '@angular/router/testing';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Glamping } from '../../../glamping/shared/model/glamping';
+import { FormatoFechaService } from '../../../../shared/services/formato-fecha.service';
 
 
 
@@ -23,6 +24,8 @@ describe('CrearReservaComponent', () => {
   let fixture: ComponentFixture<CrearReservaComponent>;
   let reservaService: ReservaService;
   let glampingService: GlampingService;
+  let swalServivce: SwalService;
+ 
 
   const glampingLista: Glamping[] = [new Glamping(1,1,'cabaña con tina',200000,1),
                                   new Glamping(1,1,'cabaña con tina',200000,1)];
@@ -39,7 +42,7 @@ describe('CrearReservaComponent', () => {
         RouterTestingModule,
         BrowserAnimationsModule
       ],
-      providers: [ReservaService, HttpService, SwalService, GlampingService],
+      providers: [ReservaService, HttpService, SwalService, GlampingService, FormatoFechaService],
     })
     .compileComponents();
   }));
@@ -49,15 +52,17 @@ describe('CrearReservaComponent', () => {
     component = fixture.componentInstance;
     reservaService = TestBed.inject(ReservaService);
     glampingService = TestBed.inject(GlampingService);
-    spyOn(reservaService, 'guardar').and.returnValue(
-      of(true)
-    );
+    swalServivce = TestBed.inject(SwalService);
+  
     spyOn(glampingService,'consultar').and.returnValue(
         of(glampingLista)
     );
+    spyOn(reservaService, 'guardar').and.returnValue(
+      of(true)
+    );
+    spyOn(swalServivce,'succes');
     fixture.detectChanges();
   });
-
   it('should create', () => {
     expect(component).toBeTruthy();
   });
@@ -79,10 +84,22 @@ describe('CrearReservaComponent', () => {
     component.reservaForm.controls.fechaSalida.setValue('2020-02-01');    
     component.reservaForm.controls.costoTotal.setValue(1);
     component.reservaForm.controls.fechaRegistro.setValue('2020-02-01 08:00:00');
-
     expect(component.reservaForm.valid).toBeTruthy();
 
     component.guardar();
+
+   
+    expect(component.reservaForm.value.cedula).toBe('1116275325');
+    expect(component.reservaForm.value.nombre).toBe('Sebastian Giron')
+    expect(component.reservaForm.value.fechaEntrada).toBe('2020-02-01');
+    expect(component.reservaForm.value.cantPersonas).toBe(2);
+    expect(component.reservaForm.value.telefono).toBe('3053198749');
+    expect(component.reservaForm.value.fechaSalida).toBe('2020-02-01');
+    expect(swalServivce.succes).toHaveBeenCalledTimes(1);
+    
+   
+
+
 
 
 

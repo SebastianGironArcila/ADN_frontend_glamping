@@ -4,11 +4,11 @@ import { ReservaService } from '../../shared/service/reserva.service';
 import { Observable } from 'rxjs';
 import { Tipo } from '../../shared/model/tipo';
 import { Glamping } from 'src/app/feature/glamping/shared/model/glamping';
-import * as moment from 'moment';
 import { SwalService } from '@core/services/swal.service';
 import { Router } from '@angular/router';
 import { GlampingService } from '../../../glamping/shared/service/glamping.service';
-
+import { FormatoFechaService } from '../../../../shared/services/formato-fecha.service';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-crear-reserva',
@@ -27,7 +27,8 @@ export class CrearReservaComponent implements OnInit {
     protected reservaService: ReservaService,
     protected glampingService: GlampingService,
     protected swalService: SwalService,
-    protected router:Router
+    protected router:Router,
+    protected formatoFechaService: FormatoFechaService
     ) { }
 
   ngOnInit(){
@@ -63,46 +64,26 @@ export class CrearReservaComponent implements OnInit {
 
 
   guardar(){
-    this.reservaForm.value.fechaRegistro = this.obtenerFechaActual();
-    this.reservaForm.value.fechaEntrada = this.formatearFechaSinHora(new Date(this.reservaForm.value.fechaEntrada));
-    this.reservaForm.value.fechaSalida = this.formatearFechaSinHora(new Date(this.reservaForm.value.fechaSalida));
+    this.reservaForm.value.fechaRegistro = this.formatoFechaService.obtenerFechaActual();
+    this.reservaForm.value.fechaEntrada = this.formatoFechaService.formatearFechaSinHora(moment(this.reservaForm.value.fechaEntrada).toDate());
+    this.reservaForm.value.fechaSalida = this.formatoFechaService.formatearFechaSinHora(moment(this.reservaForm.value.fechaSalida).toDate());
     this.reservaForm.value.telefono = String(this.reservaForm.value.telefono);
     this.reservaForm.value.idGlamping = this.reservaForm.value.idGlamping.id;
-
-    // if(this.reservaForm.valid){
-      this.reservaService.guardar(this.reservaForm.value).subscribe(
-        () => {
-          this.swalService.succes("Reserva creada correctamente");
-       
-          this.router.navigate(["/reserva/listar"]);
-          
-        },
-        (error) => {
-          this.swalService.danger(error.error.mensaje);
-         
-        }
-      );
-    // }else{
+    this.reservaService.guardar(this.reservaForm.value).subscribe(
+      () => {
+        this.swalService.succes("Reserva creada correctamente");
       
-    //   this.swalService.alert("Todos los campos son obligatorios");
-     
-    // }
-
-
+        this.router.navigate(["/reserva/listar"]);
+        
+      },
+      (error) => {
+        this.swalService.danger(error.error.mensaje);
+        
+      }
+    );
   }
-  private obtenerFechaActual() {
-    return this.formatearFechaConHora(moment().toDate());
-  }
+  
 
-  private formatearFechaConHora(fecha: Date) {
-    let fechaNueva = moment(fecha).format('YYYY-MM-DD HH:mm:ss');
-    return fechaNueva;
-  }
-
-  private formatearFechaSinHora(fecha: Date) {
-    let fechaNueva = moment(fecha).format('YYYY-MM-DD');
-    return fechaNueva;
-  }
 
 
 
