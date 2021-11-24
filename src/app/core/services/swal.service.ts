@@ -12,6 +12,16 @@ export class SwalService {
   constructor() {
   }
 
+  error(tittle: string, text: string): void {
+    Swal.fire({
+        title: tittle,
+        text: text,
+        icon: 'error',
+        position: 'center',
+        confirmButtonColor: '#ff00ff80'
+    });
+}
+
   alert(title): void {
     Swal.fire(title as SweetAlertIcon);
   }

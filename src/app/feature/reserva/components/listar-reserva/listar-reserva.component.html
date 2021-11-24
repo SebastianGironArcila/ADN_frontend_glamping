@@ -12,7 +12,7 @@
     <div 
          *ngFor="let reserva of listaReservas | async">
        
-        <app-tarjeta-reserva [reserva]="reserva"></app-tarjeta-reserva>
+        <app-tarjeta-reserva [reserva]="reserva" (eliminar)="eliminarReserva($event)"></app-tarjeta-reserva>
     </div>
   
 </div>

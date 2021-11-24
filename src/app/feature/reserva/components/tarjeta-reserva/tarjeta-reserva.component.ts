@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Reserva } from '@reserva/shared/model/reserva';
 import { ReservaService } from '../../shared/service/reserva.service';
 import { SwalService } from '../../../../core/services/swal.service';
@@ -11,6 +11,8 @@ import { SwalService } from '../../../../core/services/swal.service';
 export class TarjetaReservaComponent implements OnInit {
 
   @Input() reserva: Reserva;
+
+  @Output() eliminar = new EventEmitter<Reserva>();
   
   constructor(
     protected service: ReservaService,
@@ -20,13 +22,8 @@ export class TarjetaReservaComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  eliminarReserva(reserva:Reserva){
-    this.service.eliminar(reserva).subscribe(()=>{
-      this.swalService.danger("Reserva eliminada correctamente");
-      //this.swalService.confirm('Advertencia' ,'¿Seguro deseas eliminar esta reserva?',);
-
-      
-    })
+  eliminarReserva(){
+   this.eliminar.emit(this.reserva);
   }
 
 }

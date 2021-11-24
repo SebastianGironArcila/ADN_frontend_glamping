@@ -26,14 +26,14 @@
                     <mat-label>Fecha entrada</mat-label>
                     <input id="fechaEntrada" validar [readonly]="true" matInput [matDatepicker]="picker" placeHolder="Ingrese la fecha de entrada" class="form-control"
                     formControlName="fechaEntrada">
-                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker-toggle id="pickerFechaEntrada" matSuffix [for]="picker"></mat-datepicker-toggle>
                     <mat-datepicker #picker></mat-datepicker>
                 </mat-form-field>
                 <mat-form-field class="width-100">
                     <mat-label>Fecha salida</mat-label>
                     <input id="fechaSalida" validar  [readonly]="true"  matInput [matDatepicker]="picker2" placeHolder="Ingrese la fecha de salida" class="form-control"
                     formControlName="fechaSalida" >
-                    <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                    <mat-datepicker-toggle id="pickerFechaSalida" matSuffix [for]="picker2"></mat-datepicker-toggle>
                     <mat-datepicker #picker2></mat-datepicker>
                 </mat-form-field>
                 <mat-form-field class="width-100">
