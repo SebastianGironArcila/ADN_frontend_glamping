@@ -10,6 +10,7 @@ import { HttpService } from './services/http.service';
 import { ManejadorError } from './interceptor/manejador-error';
 import { RouterModule } from '@angular/router';
 import { MaterialModule } from './material.module';
+import { TCRMService } from './services/tcrm.service';
 
 @NgModule({
   declarations: [ToolbarComponent, NavbarComponent],
@@ -26,6 +27,7 @@ import { MaterialModule } from './material.module';
   providers: [
     HttpService,
     SecurityGuard,
+    TCRMService,
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
     { provide: ErrorHandler, useClass: ManejadorError }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TCRMService } from '../../core/services/tcrm.service';
 
 
 
@@ -10,9 +11,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(protected service: TCRMService) { }
 
   ngOnInit() {
+
+    this.service.obtenerTCRM().subscribe((data)=>{
+      console.log('data ',data);
+    })
     
   }
 
