@@ -70,7 +70,7 @@ export class CrearReservaComponent implements OnInit {
     this.reservaForm.value.fechaSalida = this.formatoFechaService.formatearFechaSinHora(moment(this.reservaForm.value.fechaSalida).toDate());
     this.reservaForm.value.telefono = String(this.reservaForm.value.telefono);
     this.reservaForm.value.idGlamping = this.reservaForm.value.idGlamping.id;
-    console.log(this.reservaForm.value);
+
     this.reservaService.guardar(this.reservaForm.value).subscribe(
       () => {
         this.swalService.succes("Reserva creada correctamente");

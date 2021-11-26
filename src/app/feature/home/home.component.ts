@@ -13,10 +13,11 @@ export class HomeComponent implements OnInit {
 
   constructor(protected service: TCRMService) { }
 
+  tcrm:any;
   ngOnInit() {
 
     this.service.obtenerTCRM().subscribe((data)=>{
-      console.log('data ',data);
+      this.tcrm = data;
     })
     
   }
